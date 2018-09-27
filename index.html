@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Mini Shop</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div class="main">
+        <div class="products">           
+        
+            <div class="product" v-for="(item, index) in items">
+                <div class="product-image">            
+                    <img v-bind:src="item.src">
+                </div>
+                <div>
+                    <h4 class="product-title">{{item.item}}</h4>
+                    <label>{{item.price}}</label>
+                    <button class="btn">Add to cart</button>  
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+</div>
+
+<!-- Scripts -->
+<script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>
