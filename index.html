@@ -11,9 +11,14 @@
 <body>
 <div id="app">
     <div class="main">
-        <div class="products">           
-        
-            <div class="product" v-for="(item, index) in items">
+    <div class="header">
+            <form class="searchbar" v-on:submit.prevent="onSubmit">
+                <input placeholder="Поиск" v-model="search">
+                <input type="submit"  class="btn">
+            </form>
+        </div>
+        <div class="products">                  
+            <div class="product" v-for="(item, index) in filteredItems">
                 <div class="product-image">            
                     <img v-bind:src="item.src">
                 </div>

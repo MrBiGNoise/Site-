@@ -19,9 +19,31 @@ var products = [
 new Vue({
     el: '#app',
     data: {
-        items: []
+        items: [],
+        search: '',
+        searchResult: []
     },
     mounted: function(){
         this.items = products;
     },
+    methods: {
+        onSubmit: function(){
+            this.items.forEach(element => {
+                if (element.item.toUpperCase().includes(this.search.toUpperCase())) {
+                    this.searchResult.push(element);
+                }
+            });
+            this.items = this.searchResult;
+        },
+    },
+    computed: {
+        filteredItems: function() {
+            if (!this.search) {
+                return this.items;
+            }
+            return this.items.filter(element => {
+                return element.item.toUpperCase().includes(this.search.toUpperCase());
+            });
+        },
+    }
 });
