@@ -18,9 +18,6 @@ Vue.use(VueRouter)
 
 new Vue({
     render: h => h(App),
-    components: {
-        App,
-    },
     el: '#app',
     router,
 })
